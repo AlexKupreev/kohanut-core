@@ -28,13 +28,25 @@
 		</p>
 	</div>
 	
+<?php
+$back_nav = Kohana::config('kohanut.backend.navigation');
+
+if ($back_nav AND is_array($back_nav) AND ! empty($back_nav))
+{
+?>
 	<ul id="navigation">
-		<li><?php echo html::anchor( Route::get('kohanut-admin')->uri(array('controller'=>'pages')) , __('Pages') ) ?></li>
-		<li><?php echo html::anchor( Route::get('kohanut-admin')->uri(array('controller'=>'snippets')) , __('Snippets') ) ?></li>
-		<li><?php echo html::anchor( Route::get('kohanut-admin')->uri(array('controller'=>'layouts')) , __('Layouts') ) ?></li>
-		<li><?php echo html::anchor( Route::get('kohanut-admin')->uri(array('controller'=>'users')) , __('Users') ) ?></li>
-		<li><?php echo html::anchor( Route::get('kohanut-admin')->uri(array('controller'=>'redirects')) , __('Redirects') ) ?></li>
+<?php
+    foreach ($back_nav as $controller => $name)
+    {
+?>
+		<li><?php echo html::anchor( Route::get('kohanut-admin')->uri(array('controller' => $controller)) , __($name) ) ?></li>
+<?php
+    }
+?>
 	</ul>
+<?php
+}
+?>
 
 	<div id="content" class="container_16 clearfix">
 		<?php echo $body ?>
