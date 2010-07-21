@@ -10,7 +10,7 @@
 	<?php echo html::style( Route::get('kohanut-media')->uri(array('file'=>'css/color.css'))    , array('media'=>'screen','charset'=>'utf-8') ) . "\n"; ?>
 	<?php echo html::style( Route::get('kohanut-media')->uri(array('file'=>'css/kohanut.css'))  , array('media'=>'screen','charset'=>'utf-8') ) . "\n"; ?>
 
-	<?php echo html::script(Route::get('kohanut-media')->uri(array('file'=>'jquery/jquery-1.3.2.min.js')) ). "\n"; ?>
+    <?php echo html::script(Route::get('kohanut-media')->uri(array('file'=>'jquery/jquery-1.4.2.min.js')) ). "\n"; ?>
 	<?php echo html::script(Route::get('kohanut-media')->uri(array('file'=>'jquery/jquery.treeview.js')) ). "\n"; ?>
 	<?php echo html::script(Route::get('kohanut-media')->uri(array('file'=>'jquery/jquery.cookie.js')) ). "\n"; ?>
 </head>
