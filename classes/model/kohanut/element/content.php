@@ -18,7 +18,8 @@ class Model_Kohanut_Element_Content extends Kohanut_Element
             ->fields(array(
 			'id' => new Field_Primary,
 			
-			'code' => new Field_Text,
+			//'code' => new Field_Text,
+            'code' => new Field_Wysiwyg,
 			
 			'markdown' => new Field_Boolean(array('default'=>true)),
 			
@@ -134,11 +135,12 @@ class Model_Kohanut_Element_Content extends Kohanut_Element
             $values = array($values => $value);
         }
         
-        if ($this->loaded()){
+        if ($this->loaded())
+        {
             $new = array(
-                'twig'  => 0,
+                'twig' => 0,
                 'markdown' => 0,
-            );
+                );
             return parent::set(array_merge($new, $values));
         }
         else
