@@ -37,8 +37,12 @@ if (isset($is_wysiwyg_plugged))
         theme_advanced_statusbar_location : "bottom",
         theme_advanced_resizing : true,
         theme_advanced_buttons3_add : "template",
-    
-
+        
+        file_browser_callback : function(field_name, url, type, win) {
+            var w = window.open('<?php echo url::site('admin/uploads/elfinder')?>', null, 'width=600,height=500');
+            w.tinymceFileField = field_name;
+            w.tinymceFileWin = win;
+        }
     });
 </script>
 <?php

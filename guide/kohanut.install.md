@@ -6,12 +6,13 @@ To install Kohanut, follow these instructions:
 
 1.  Download the [latest zip file](http://kohanut.com/download), and extract it onto your server.
 
-2.  We need to make `application/logs` and `application/cache`, and `application/cache/twig` folders writable, Using an ftp client you can usually right-click on each folder, click on permisions, and mark as group and world writable.  If you have command-line access you can run the following commands:
+2.  We need to make `application/logs` and `application/cache`, and `application/cache/twig`, and `uploads` folders writable, Using an ftp client you can usually right-click on each folder, click on permisions, and mark as group and world writable.  If you have command-line access you can run the following commands:
 
    ~~~
    chmod 777 application/logs
    chmod 777 application/cache
    chmod 777 application/cache/twig
+   chmod 777 uploads
    ~~~
 
 3.  You will need to create a database, and a database user with access to that database, and then edit `application/config/database.php` with those settings.  Here is the relevant pieces of that file:

@@ -16,11 +16,12 @@ return array
         // navigation tabs to show 
         // define them in 'controller => name' format
         'navigation' => array(
-            'pages' => 'Pages',
-            'snippets' => 'Snippets',
-            'layouts' => 'Layouts',
-            'users' => 'Users',
-            'redirects' => 'Redirects',
+            'pages'         => 'Pages',
+            'snippets'      => 'Snippets',
+            'layouts'       => 'Layouts',
+            'users'         => 'Users',
+            'redirects'     => 'Redirects',
+            'uploads'       => 'Uploads',
             ),
         ),
 );
