@@ -4,15 +4,24 @@
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<title><?php echo (isset($title) ? __("Admin") . " - " . $title : __("Admin")); ?></title>
+    
+    <?php
+    if (isset($styles) AND ! empty($styles) AND is_array($styles))
+    {        
+        foreach ($styles as $uri => $attrs)
+        {
+            echo html::style($uri, $attrs) . "\n";
+        }
+    }
 
-	<?php echo html::style( Route::get('kohanut-media')->uri(array('file'=>'css/960.css'))      , array('media'=>'screen','charset'=>'utf-8') ) . "\n"; ?>
-	<?php echo html::style( Route::get('kohanut-media')->uri(array('file'=>'css/template.css')) , array('media'=>'screen','charset'=>'utf-8') ) . "\n"; ?>
-	<?php echo html::style( Route::get('kohanut-media')->uri(array('file'=>'css/color.css'))    , array('media'=>'screen','charset'=>'utf-8') ) . "\n"; ?>
-	<?php echo html::style( Route::get('kohanut-media')->uri(array('file'=>'css/kohanut.css'))  , array('media'=>'screen','charset'=>'utf-8') ) . "\n"; ?>
-
-    <?php echo html::script(Route::get('kohanut-media')->uri(array('file'=>'jquery/jquery-1.4.2.min.js')) ). "\n"; ?>
-	<?php echo html::script(Route::get('kohanut-media')->uri(array('file'=>'jquery/jquery.treeview.js')) ). "\n"; ?>
-	<?php echo html::script(Route::get('kohanut-media')->uri(array('file'=>'jquery/jquery.cookie.js')) ). "\n"; ?>
+    if (isset($scripts) AND ! empty($scripts) AND is_array($scripts))
+    {
+        foreach ($scripts as $uri => $attrs)
+        {
+            echo html::script($uri, $attrs) . "\n";
+        }
+    }
+    ?>
 </head>
 <body>
 

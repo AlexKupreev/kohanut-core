@@ -24,6 +24,10 @@ class Controller_Kohanut_Admin extends Controller {
 	
 	// admin pages require login
 	protected $requires_login = true;
+    
+    protected $styles = array();
+    
+    protected $scripts = array();
 	
 	public function before()
 	{
@@ -58,6 +62,26 @@ class Controller_Kohanut_Admin extends Controller {
                 $this->view->user = $this->user->username;    
             }
 		}
+        
+        // plug-in default scripts and styles
+        $this->view->bind('styles', $this->styles);
+        $this->view->bind('scripts', $this->scripts);
+        
+        
+        $this->styles = array(
+            Route::get('kohanut-media')->uri(array('file'=>'css/960.css'))         => array('media'=>'screen','charset'=>'utf-8'),
+            Route::get('kohanut-media')->uri(array('file'=>'css/template.css'))    => array('media'=>'screen','charset'=>'utf-8'),
+            Route::get('kohanut-media')->uri(array('file'=>'css/color.css'))       => array('media'=>'screen','charset'=>'utf-8'),
+            Route::get('kohanut-media')->uri(array('file'=>'css/kohanut.css'))     => array('media'=>'screen','charset'=>'utf-8'),
+            ); 
+                        
+        $this->scripts = array(
+            Route::get('kohanut-media')->uri(array('file'=>'jquery/jquery-1.4.2.min.js'))   => NULL,
+            Route::get('kohanut-media')->uri(array('file'=>'jquery/jquery.treeview.js'))    => NULL,
+            Route::get('kohanut-media')->uri(array('file'=>'jquery/jquery.cookie.js'))      => NULL,
+            );
+            
+        // Route::get('kohanut-media')->uri(array('file'=>'elfinder/js/i18n/elfinder.ru.js'))
 		
 		// Check for language change
 		if (isset($_GET['lang']))
