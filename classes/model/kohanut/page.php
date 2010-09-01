@@ -11,9 +11,9 @@
  */
 class Model_Kohanut_Page extends Jelly_Model_MPTT {
 
-	protected $_directory = '';
+	protected $_directory = ''; 
 
-	public static function initialize(Jelly_Meta $meta)
+	public static function initialize(Jelly_Meta_MPTT $meta)
 	{
 		
 		$meta->fields(array(
@@ -54,7 +54,7 @@ class Model_Kohanut_Page extends Jelly_Model_MPTT {
         parent::initialize($meta);
 	    
 	}
-	
+    
 	/**
 	 * Create a new page in the tree as a child of $parent
 	 *
